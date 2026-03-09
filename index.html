@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignalLab — Испытания интернет-роутеров</title>
+  <meta name="description" content="SignalLab — цифровое моделирование испытаний интернет-роутеров: отчёт по партии, рекомендации, SLA и тестирование до установки." />
+  <meta name="theme-color" content="#0d6efd" />
+  <meta property="og:title" content="SignalLab — Испытания интернет-роутеров" />
+  <meta property="og:description" content="Проверяйте надёжность роутеров до установки: цифровое моделирование испытаний, отчёт, рекомендации и SLA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !(function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    })(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ТОО SignalLab",
+    "url": "https://example.com",
+    "telephone": "+77078088767",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+77078088767",
+      "contactType": "sales",
+      "areaServed": "KZ",
+      "availableLanguage": ["Russian", "Kazakh"]
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="#top" class="brand" aria-label="SignalLab home">
+        <span class="brand-mark"></span>
+        <span class="brand-text">SignalLab</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#services" data-i18n="navServices">Услуги</a>
+        <a href="#process" data-i18n="navProcess">Процесс</a>
+        <a href="#pricing" data-i18n="navPricing">Тарифы</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+        <a href="#contacts" data-i18n="navContacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-btn active" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+        </div>
+        <a class="btn btn-whatsapp btn-sm" href="https://wa.me/77078088767" target="_blank" rel="noopener" data-i18n="writeWhatsapp">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="eyebrow">Digital Router Testing Platform</div>
+          <h1 data-i18n="heroTitle">Испытания интернет-роутеров. Убедитесь в надёжности оборудования перед установкой.</h1>
+          <p class="hero-text" data-i18n="heroText">Имитация лабораторных испытаний с затуханием выполняется на цифровой платформе с использованием IT-технологий моделирования: 8 направлений, затухание &gt;30 dB, дистанции 5–30 м.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacts" data-i18n="getProposal">Получить КП</a>
+            <a class="btn btn-secondary" href="https://wa.me/77078088767" target="_blank" rel="noopener" data-i18n="writeWhatsappLong">Написать в WhatsApp</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <strong>8</strong>
+              <span data-i18n="metricDirections">направлений теста</span>
+            </div>
+            <div class="metric-card">
+              <strong>&gt;30 dB</strong>
+              <span data-i18n="metricAttenuation">затухание</span>
+            </div>
+            <div class="metric-card">
+              <strong>24–72h</strong>
+              <span data-i18n="metricSla">SLA по срокам</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-hidden="true">
+          <div class="signal-card signal-card-lg">
+            <div class="signal-topline">
+              <span class="chip">SignalLab Core</span>
+              <span class="status ok">LIVE TEST</span>
+            </div>
+            <div class="signal-grid">
+              <div class="plot">
+                <div class="plot-label">Coverage map</div>
+                <svg viewBox="0 0 420 180" class="plot-svg" role="img" aria-label="Coverage graph">
+                  <defs>
+                    <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#8dc5ff"/>
+                      <stop offset="100%" stop-color="#0d6efd"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M10 150 C70 110, 90 100, 130 115 S 220 150, 280 90 S 350 40, 410 70" fill="none" stroke="url(#lineA)" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M10 160 H410" stroke="rgba(13,110,253,0.15)" stroke-width="2"/>
+                  <circle cx="280" cy="90" r="7" fill="#0d6efd"/>
+                  <circle cx="350" cy="40" r="7" fill="#0d6efd"/>
+                </svg>
+              </div>
+              <div class="radial-group">
+                <div class="radial-card">
+                  <div class="radial-icon"></div>
+                  <div>
+                    <div class="radial-title">8 planes</div>
+                    <div class="radial-sub">45° angles</div>
+                  </div>
+                </div>
+                <div class="radial-card">
+                  <div class="radial-icon alt"></div>
+                  <div>
+                    <div class="radial-title">5–30 m</div>
+                    <div class="radial-sub">Distance range</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="result-band">
+              <span>Signal Stability</span>
+              <div class="progress"><i style="width:84%"></i></div>
+              <strong>84%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <article class="trust-card">
+          <div class="trust-icon"></div>
+          <h3 data-i18n="advantage1">Тесты по методике</h3>
+          <p data-i18n="advantage1Text">Стандартизированный сценарий проверки для партий и отдельных устройств.</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-icon icon-doc"></div>
+          <h3 data-i18n="advantage2">Отчёт + сертификат партии</h3>
+          <p data-i18n="advantage2Text">Фиксация параметров, статуса и заключения по каждой модели.</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-icon icon-shield"></div>
+          <h3 data-i18n="advantage3">Снижение брака и выездов</h3>
+          <p data-i18n="advantage3Text">Снижение рисков возвратов и доработок уже после монтажа.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag" data-i18n="problemsTag">Проблема → Решение</span>
+          <h2 data-i18n="problemsTitle">Предотвращаем проблемы до установки оборудования</h2>
+        </div>
+        <div class="problem-solution-grid">
+          <div class="info-panel problem-panel">
+            <h3 data-i18n="problemsSubtitle">Типовые проблемы</h3>
+            <ul class="icon-list">
+              <li data-i18n="problem1">Нестабильный Wi‑Fi после монтажа</li>
+              <li data-i18n="problem2">Возвраты и брак в партиях</li>
+              <li data-i18n="problem3">Повторные выезды инженеров</li>
+            </ul>
+          </div>
+          <div class="info-panel solution-panel">
+            <h3 data-i18n="solutionSubtitle">Как решаем</h3>
+            <p data-i18n="solutionText">Тестируем устройства до установки, фиксируем результаты, выдаём отчёт и рекомендации по настройке, замене или корректировке модели.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag" data-i18n="worksTag">Перечень работ</span>
+          <h2 data-i18n="worksTitle">Цифровое моделирование лабораторных испытаний с затуханием</h2>
+          <p data-i18n="worksText">Платформа воспроизводит реальные условия тестирования без физической лаборатории и помогает оценить стабильность оборудования до внедрения.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><h3 data-i18n="service1">Лабораторные испытания с затуханием (&gt;30 dB)</h3></article>
+          <article class="service-card"><h3 data-i18n="service2">8 направлений (плоскости + углы 45°)</h3></article>
+          <article class="service-card"><h3 data-i18n="service3">Скорость и стабильность на дистанции 5–30 м</h3></article>
+          <article class="service-card"><h3 data-i18n="service4">Реальные условия: бетон, мебель, техника</h3></article>
+          <article class="service-card"><h3 data-i18n="service5">Отчёт и анализ результатов</h3></article>
+          <article class="service-card"><h3 data-i18n="service6">Опционально: настройка ПО, замена компонентов, рекомендация модели</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag" data-i18n="processTag">Процесс</span>
+          <h2 data-i18n="processTitle">Как проходит тестирование</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card"><span>01</span><h3 data-i18n="step1">Вы отправляете партию или единицы</h3></article>
+          <article class="step-card"><span>02</span><h3 data-i18n="step2">Регистрация устройств: серийник / MAC</h3></article>
+          <article class="step-card"><span>03</span><h3 data-i18n="step3">Испытание: затухание + 8 направлений</h3></article>
+          <article class="step-card"><span>04</span><h3 data-i18n="step4">Проверка на дистанциях 5–30 м</h3></article>
+          <article class="step-card"><span>05</span><h3 data-i18n="step5">Моделирование реальных условий</h3></article>
+          <article class="step-card"><span>06</span><h3 data-i18n="step6">Отчёт + рекомендации + статус OK / Needs tuning / Replace</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag" data-i18n="deliverablesTag">Deliverables</span>
+          <h2 data-i18n="deliverablesTitle">Что вы получаете</h2>
+        </div>
+        <div class="deliverables-grid">
+          <article class="deliverable-card"><strong>PDF</strong><p data-i18n="deliverable1">PDF-отчёт по партии</p></article>
+          <article class="deliverable-card"><strong>DATA</strong><p data-i18n="deliverable2">Таблица замеров: скорость, сигнал, стабильность</p></article>
+          <article class="deliverable-card"><strong>MODEL</strong><p data-i18n="deliverable3">Заключение по каждой модели</p></article>
+          <article class="deliverable-card"><strong>ACTION</strong><p data-i18n="deliverable4">Рекомендации по настройке или замене</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag" data-i18n="pricingTag">Тарифы</span>
+          <h2 data-i18n="pricingTitle">Форматы работы</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="plan-label" data-i18n="planBasic">Базовый пакет</div>
+            <h3 data-i18n="planBasicTitle">Тест 1 устройства</h3>
+            <p data-i18n="planBasicText">Подходит для точечной проверки модели или пилотной партии перед закупом.</p>
+            <a href="#contacts" class="btn btn-secondary" data-i18n="getProposal">Получить КП</a>
+          </article>
+          <article class="pricing-card featured">
+            <div class="plan-label" data-i18n="planEnterprise">Enterprise</div>
+            <h3 data-i18n="planEnterpriseTitle">Подписка + API / доступ к платформе</h3>
+            <p data-i18n="planEnterpriseText">Для дистрибьюторов, интеграторов и корпоративных заказчиков с регулярными объёмами.</p>
+            <a href="https://wa.me/77078088767" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="writeWhatsappLong">Написать в WhatsApp</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="sla-box">
+          <div>
+            <span class="section-tag" data-i18n="slaTag">SLA / Сроки</span>
+            <h2 data-i18n="slaTitle">Стандартный срок: 24–72 часа</h2>
+            <p data-i18n="slaText">При больших объёмах согласовываем отдельный график тестирования и выдачи результатов.</p>
+          </div>
+          <a href="#contacts" class="btn btn-primary" data-i18n="getProposal">Получить КП</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-heading center">
+          <span class="section-tag">FAQ</span>
+          <h2 data-i18n="faqTitle">Частые вопросы</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary data-i18n="faq1q">Сколько устройств можно протестировать в день?</summary>
+            <p data-i18n="faq1a">Объём зависит от модели и сценария проверки. Для серийных партий условия согласовываются отдельно.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq2q">Какие условия доставки?</summary>
+            <p data-i18n="faq2a">Вы передаёте устройства удобным способом, далее фиксируем приём, маркировку и запуск в тест.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq3q">Какие модели тестируете?</summary>
+            <p data-i18n="faq3a">Тестируем интернет-роутеры и смежное оборудование в рамках согласованной методики и KPI.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq4q">Что если выявлен брак или отклонение?</summary>
+            <p data-i18n="faq4a">В отчёте фиксируем статус и даём рекомендации: настройка, замена компонента или замена модели.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contacts">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <span class="section-tag" data-i18n="contactsTag">Контакты</span>
+          <h2 data-i18n="contactsTitle">Оставьте заявку</h2>
+          <p data-i18n="contactsText">Расскажите о партии, объёме и задаче. Подготовим предложение и свяжемся удобным способом.</p>
+          <div class="contact-points">
+            <a href="tel:+77078088767">+7 707 808 8767</a>
+            <a href="https://wa.me/77078088767" target="_blank" rel="noopener">WhatsApp</a>
+            <p>ТОО SignalLab</p>
+          </div>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-grid">
+            <label>
+              <span data-i18n="fieldName">Имя</span>
+              <input type="text" name="name" required>
+            </label>
+            <label>
+              <span data-i18n="fieldCompany">Компания</span>
+              <input type="text" name="company">
+            </label>
+            <label>
+              <span data-i18n="fieldPhone">Телефон</span>
+              <input type="tel" name="phone" required>
+            </label>
+            <label>
+              <span data-i18n="fieldVolume">Объём</span>
+              <input type="text" name="volume">
+            </label>
+            <label class="full">
+              <span data-i18n="fieldComment">Комментарий</span>
+              <textarea name="message" rows="5"></textarea>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="sendRequest">Отправить заявку</button>
+            <a href="https://wa.me/77078088767" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="writeWhatsappLong">Написать в WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 ТОО SignalLab</p>
+      <p data-i18n="footerText">Испытания интернет-роутеров и цифровое моделирование тестов</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
